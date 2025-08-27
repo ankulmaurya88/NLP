@@ -14,7 +14,7 @@ setup(
     ],
     entry_points={
         "console_scripts": [
-            "run-backend=backend.app:main",   # Optional: create a command to run app
+            "run-backend=backend.app:app",   # Optional: create a command to run app
         ],
     },
 )
