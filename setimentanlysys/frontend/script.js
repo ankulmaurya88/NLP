@@ -4,7 +4,7 @@ async function analyzeSentiment() {
     alert("Please enter some text");
     return;
   }
-
+// http://127.0.0.1:8000/sentiment/predict
   try {
     const response = await fetch("http://localhost:8000/sentiment/predict", {
       method: "POST",
