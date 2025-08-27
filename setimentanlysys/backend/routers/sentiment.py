@@ -2,9 +2,14 @@ from fastapi import APIRouter
 from backend.services.ml_service import predict_sentiment
 
 
+from pydantic import BaseModel
+
 router = APIRouter(prefix="/sentiment", tags=["Sentiment"])
 
+class SentimentRequest(BaseModel):
+    text: str
+
 @router.post("/predict")
-def predict(text: str):
-    result = predict_sentiment(text)
-    return {"text": text, "sentiment": result}
+def predict(data: SentimentRequest):
+    result = predict_sentiment(data.text)
+    return {"text":data.text, "sentiment": result}
